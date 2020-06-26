@@ -1,0 +1,46 @@
+version: '3'
+services:
+  # aws --endpoint-url=http://localhost:4575 sns list-topics
+  cdc_development-user_S1UserEntitiesUser:
+    build: .
+    image: jaypuk/ontopic
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+    command:
+      - node
+      - "--inspect-brk=0.0.0.0"
+      - "./cli.js"
+      - "arn:aws:sns:eu-west-1:000000000000:cdc_development-user_S1UserEntitiesUser"
+      
+      
+
+  # cdc_development-eudevelopments1_cdc_workeruser_pipeline:
+  #   build: .
+  #   image: jaypuk/ontopic
+  #   command: [ "node", "./cli.js", "arn:aws:sns:eu-west-1:000000000000:cdc_development-eudevelopments1_cdc_workeruser_pipeline" ]
+
+  # cdc_development-subscription_S1SubscriptionEntitiesAccount:
+  #   build: .
+  #   image: jaypuk/ontopic
+  #   command: [ "node", "./cli.js", "arn:aws:sns:eu-west-1:000000000000:cdc_development-subscription_S1SubscriptionEntitiesAccount" ]
+
+  # cdc_development-eudevelopments1_cdc_workeraccount_pipeline:
+  #   build: .
+  #   image: jaypuk/ontopic
+  #   command: [ "node", "./cli.js", "arn:aws:sns:eu-west-1:000000000000:cdc_development-eudevelopments1_cdc_workeraccount_pipeline" ]
+
+  # cdc_development-user_S1UserEntitiesUserAuthProvider:
+  #   build: .
+  #   image: jaypuk/ontopic
+  #   command: [ "node", "./cli.js", "arn:aws:sns:eu-west-1:000000000000:cdc_development-user_S1UserEntitiesUserAuthProvider" ]
+
+  # cdc_development-eudevelopments1_cdc_workeruser_auth_provider_pipeline:
+  #   build: .
+  #   image: jaypuk/ontopic
+  #   command: [ "node", "./cli.js", "arn:aws:sns:eu-west-1:000000000000:cdc_development-eudevelopments1_cdc_workeruser_auth_provider_pipeline" ]
+
+  # cdc_development-sbc-accounting-metrics:
+  #   build: .
+  #   image: jaypuk/ontopic
+  #   command: [ "node", "./cli.js", "arn:aws:sns:eu-west-1:000000000000:cdc_development-sbc-accounting-metrics" ]
